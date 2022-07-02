@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Pokemon Hollow";
+    src: url("../src/fonts/PokemonHollow.ttf");
+  }
+
+@font-face {
+  font-family: "Pokemon Solid";
+  src: url("../src/fonts/PokemonSolid.ttf");
+} 
