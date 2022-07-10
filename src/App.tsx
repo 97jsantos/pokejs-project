@@ -1,16 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+
 import { Footer } from "./layout/Footer"
 import { Header } from "./layout/Header"
-import { Main } from "./layout/Main"
+import { Pokedex } from "./pages/Pokedex"
+import { Pokemon } from "./pages/Pokemon"
 
 function App() {
 
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <Main />
+      <Routes>
+        <Route path="/" element={<Pokedex />} />
+        <Route path="/pokemon/:id" element={<Pokemon />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   )
 }
-
 export default App

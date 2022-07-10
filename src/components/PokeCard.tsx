@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { GiWeight, GiWizardStaff, GiBarefoot } from 'react-icons/gi'
 import { IoMdStats } from 'react-icons/io'
 import { AiFillHeart } from 'react-icons/ai'
@@ -20,12 +22,11 @@ interface PokeCardProps {
 
 export function PokeCard({ name, id, weight, type1, type2, hp, speed, attack, specialAttack, defense, specialDefense  }:PokeCardProps) {
     return (
-        <div className="h-96 w-64 mx-14 bg-zinc-300 rounded-md flex flex-col justify-between scale-150 relative">
+        <Link to={`/pokemon/${id}`} className="h-96 w-64 bg-zinc-300 rounded-md flex flex-col justify-between scale-75 relative">
             <div>
                 <div className='absolute bg-white p-4 w-10 h-10 rounded-full border-2 border-zinc-300 -top-5 -left-5 flex justify-center items-center'><p>{id}</p></div>
                 <div className="flex justify-around my-2">
                     <p>{name[0].toUpperCase() + name.substring(1)}</p>
-                    <p className='flex gap-1 items-center'>{weight}<span><GiWeight /></span></p>
                     <p className='flex gap-1 items-center'>{hp + speed + attack + specialAttack + defense + specialDefense}<span><IoMdStats /></span></p>
                 </div>
                 <div className="flex justify-center">
@@ -33,79 +34,45 @@ export function PokeCard({ name, id, weight, type1, type2, hp, speed, attack, sp
                 </div>
                 <div className="flex justify-around">
                     <p className={`w-24 flex justify-center rounded-sm
-                    ${type1 === "normal" && "bg-zinc-400" || 
-                    type1 === "fire" && "bg-orange-600" || 
-                    type1 === "water" && "bg-blue-500" ||
-                    type1 === "electric" && "bg-yellow-300" ||
-                    type1 === "grass" && "bg-green-400" ||
-                    type1 === "ice" && "bg-blue-400" ||
-                    type1 === "fighting" && "bg-orange-700" ||
-                    type1 === "poison" && "bg-violet-400" ||
-                    type1 === "ground" && "bg-yellow-500" ||
-                    type1 === "flying" && "bg-blue-300" ||
-                    type1 === "psychic" && "bg-pink-500" ||
-                    type1 === "bug" && "bg-green-600" ||
-                    type1 === "rock" && "bg-yellow-700" ||
-                    type1 === "ghost" && "bg-violet-600" ||
-                    type1 === "dragon" && "bg-orange-900" ||
-                    type1 === "dark" && "bg-zinc-700" ||
-                    type1 === "steel" && "bg-gray-600" ||
-                    type1 === "fairy" && "bg-pink-300"}
-                    `}>{type1 === "normal" && "Normal" ||
-                    type1 === "fire" && "Fogo" ||
-                    type1 === "water" && "Água" ||
-                    type1 === "electric" && "Elétrico" ||
-                    type1 === "grass" && "Grama" ||
-                    type1 === "ice" && "Gelo" ||
-                    type1 === "fighting" && "Lutador" ||
-                    type1 === "poison" && "Venenoso" ||
-                    type1 === "ground" && "Terra" ||
-                    type1 === "flying" && "Voador" ||
-                    type1 === "psychic" && "Psíquico" ||
-                    type1 === "bug" && "Inseto" ||
-                    type1 === "rock" && "Pedra" ||
-                    type1 === "ghost" && "Fantasma" ||
-                    type1 === "dragon" && "Dragão" ||
-                    type1 === "dark" && "Noturno" ||
-                    type1 === "steel" && "Metal" ||
-                    type1 === "fairy" && "Fada"}</p>
+                    ${type1 === "Normal" && "bg-zinc-400" || 
+                    type1 === "Fogo" && "bg-orange-600" || 
+                    type1 === "Água" && "bg-blue-500" ||
+                    type1 === "Elétrico" && "bg-yellow-300" ||
+                    type1 === "Grama" && "bg-green-400" ||
+                    type1 === "Gelo" && "bg-blue-400" ||
+                    type1 === "Lutador" && "bg-orange-700" ||
+                    type1 === "Venenoso" && "bg-violet-400" ||
+                    type1 === "Terra" && "bg-yellow-500" ||
+                    type1 === "Voador" && "bg-blue-300" ||
+                    type1 === "Psíquico" && "bg-pink-500" ||
+                    type1 === "Inseto" && "bg-green-600" ||
+                    type1 === "Pedra" && "bg-yellow-700" ||
+                    type1 === "Fantasma" && "bg-violet-600" ||
+                    type1 === "Dragão" && "bg-orange-900" ||
+                    type1 === "Noturno" && "bg-zinc-700" ||
+                    type1 === "Metal" && "bg-gray-600" ||
+                    type1 === "Fada" && "bg-pink-300"}
+                    `}>{type1}</p>
                     <p className={`w-24 flex justify-center rounded-sm
-                    ${type2 === "normal" && "bg-zinc-400" || 
-                    type2 === "fire" && "bg-orange-600" || 
-                    type2 === "water" && "bg-blue-500" ||
-                    type2 === "electric" && "bg-yellow-300" ||
-                    type2 === "grass" && "bg-green-400" ||
-                    type2 === "ice" && "bg-blue-400" ||
-                    type2 === "fighting" && "bg-orange-700" ||
-                    type2 === "poison" && "bg-violet-400" ||
-                    type2 === "ground" && "bg-yellow-500" ||
-                    type2 === "flying" && "bg-blue-300" ||
-                    type2 === "psychic" && "bg-pink-500" ||
-                    type2 === "bug" && "bg-green-600" ||
-                    type2 === "rock" && "bg-yellow-700" ||
-                    type2 === "ghost" && "bg-violet-600" ||
-                    type2 === "dragon" && "bg-orange-900" ||
-                    type2 === "dark" && "bg-zinc-700" ||
-                    type2 === "steel" && "bg-gray-600" ||
-                    type2 === "fairy" && "bg-pink-300"}
-                    `}>{type2 === "normal" && "Normal" ||
-                    type2 === "fire" && "Fogo" ||
-                    type2 === "water" && "Água" ||
-                    type2 === "electric" && "Elétrico" ||
-                    type2 === "grass" && "Grama" ||
-                    type2 === "ice" && "Gelo" ||
-                    type2 === "fighting" && "Lutador" ||
-                    type2 === "poison" && "Venenoso" ||
-                    type2 === "ground" && "Terra" ||
-                    type2 === "flying" && "Voador" ||
-                    type2 === "psychic" && "Psíquico" ||
-                    type2 === "bug" && "Inseto" ||
-                    type2 === "rock" && "Pedra" ||
-                    type2 === "ghost" && "Fantasma" ||
-                    type2 === "dragon" && "Dragão" ||
-                    type2 === "dark" && "Noturno" ||
-                    type2 === "steel" && "Metal" ||
-                    type2 === "fairy" && "Fada"}</p>
+                    ${type2 === "Normal" && "bg-zinc-400" || 
+                    type2 === "Fogo" && "bg-orange-600" || 
+                    type2 === "Água" && "bg-blue-500" ||
+                    type2 === "Elétrico" && "bg-yellow-300" ||
+                    type2 === "Grama" && "bg-green-400" ||
+                    type2 === "Gelo" && "bg-blue-400" ||
+                    type2 === "Lutador" && "bg-orange-700" ||
+                    type2 === "Venenoso" && "bg-violet-400" ||
+                    type2 === "Terra" && "bg-yellow-500" ||
+                    type2 === "Voador" && "bg-blue-300" ||
+                    type2 === "Psíquico" && "bg-pink-500" ||
+                    type2 === "Inseto" && "bg-green-600" ||
+                    type2 === "Pedra" && "bg-yellow-700" ||
+                    type2 === "Fantasma" && "bg-violet-600" ||
+                    type2 === "Dragão" && "bg-orange-900" ||
+                    type2 === "Noturno" && "bg-zinc-700" ||
+                    type2 === "Metal" && "bg-gray-600" ||
+                    type2 === "Fada" && "bg-pink-300"}
+                    `}>{type2}</p>
                 </div>
             </div>
             <div className='h-full flex justify-around items-end my-2 mx-2'>
@@ -117,7 +84,7 @@ export function PokeCard({ name, id, weight, type1, type2, hp, speed, attack, sp
                 </div>
                 <div>
                     <p className='w-7 text-center'>{attack}</p>
-                    <div className={`w-7 flex items-end bg-blue-400 ${attack >= 200 && "h-16" || attack >= 150 && "h-14" || attack >= 120 && "h-12" || attack >= 100 && "h-11" || attack >= 90 && "h-10" || attack >= 80 && "h-9" || hp >= 70 && "h-8" || hp >= 60 && "h-7" || hp >= 50 && "h-6" || hp >= 40 && "h-5" || attack >= 30 && "h-4" || attack >= 20 && "h-3" || attack >= 10 && "h-2" || attack >= 1 && "h-1" || attack === 0 && "h-0"} `}>
+                    <div className={`w-7 flex items-end bg-blue-400 ${attack >= 200 && "h-16" || attack >= 150 && "h-14" || attack >= 120 && "h-12" || attack >= 100 && "h-11" || attack >= 90 && "h-10" || attack >= 80 && "h-9" || attack >= 70 && "h-8" || attack >= 60 && "h-7" || attack >= 50 && "h-6" || attack >= 40 && "h-5" || attack >= 30 && "h-4" || attack >= 20 && "h-3" || attack >= 10 && "h-2" || attack >= 1 && "h-1" || attack === 0 && "h-0"} `}>
                     </div>
                     <p className='bg-zinc-300 w-full h-6 flex justify-center items-center'><RiSwordFill className='text-blue-700' /></p>
                 </div>
@@ -149,6 +116,6 @@ export function PokeCard({ name, id, weight, type1, type2, hp, speed, attack, sp
                     className='text-orange-400 h-3.5' /></p>                   
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
