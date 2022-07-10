@@ -11,7 +11,7 @@ export function SelectRegion({ regionChange, regionSelected, disabled }:SelectRe
     const [ regions, setRegions ] = useState([])
 
     useEffect(() => {
-        fetch("https://pokejs-api.herokuapp.com/regions/", {
+        fetch("http://localhost:5000/regions/", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export function SelectRegion({ regionChange, regionSelected, disabled }:SelectRe
                 <p className="text-center my-3 font-pokejs text-xl">Regiões</p>
                 <button onClick={regionChange} disabled={disabled} className={`text-center mt-3 disabled:opacity-50 ${"Todas" === regionSelected && "text-yellow-500 underline underline-offset-1"}`} value="Todas">Todas</button>
                 {regions.map((region: any) => (
-                    <button onClick={regionChange} disabled={disabled} className={`text-center mt-3 disabled:opacity-50 ${region.name === regionSelected && "text-yellow-500 underline underline-offset-1"}`} value={region.name} key={region.id}>{region.name}</button>
+                    <button onClick={regionChange} disabled={disabled} className={`text-center mt-3 disabled:opacity-50 ${region.name === regionSelected && "text-yellow-500 underline underline-offset-1"}`} value={region.name} key={region.id}>{region.name[0].toUpperCase() + region.name.substring(1)}</button>
                 ))}
             </div>
         </div>

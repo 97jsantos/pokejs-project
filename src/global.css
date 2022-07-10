@@ -10,4 +10,8 @@
 @font-face {
   font-family: "Pokemon Solid";
   src: url("../src/fonts/PokemonSolid.ttf");
-} 
+}
+
+body {
+  background-image: url('../src/assets/body_bg.png');
+}

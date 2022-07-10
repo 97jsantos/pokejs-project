@@ -8,8 +8,7 @@ import { BsShieldFill } from 'react-icons/bs'
 
 interface PokeCardProps {
     name: any
-    id: string
-    weight: number
+    id: number
     type1: string
     type2: string
     hp: number
@@ -20,7 +19,7 @@ interface PokeCardProps {
     specialDefense: number
 }
 
-export function PokeCard({ name, id, weight, type1, type2, hp, speed, attack, specialAttack, defense, specialDefense  }:PokeCardProps) {
+export function PokeCard({ name, id, type1, type2, hp, speed, attack, specialAttack, defense, specialDefense  }:PokeCardProps) {
     return (
         <Link to={`/pokemon/${id}`} className="h-96 w-64 bg-zinc-300 rounded-md flex flex-col justify-between scale-75 relative">
             <div>
@@ -34,45 +33,79 @@ export function PokeCard({ name, id, weight, type1, type2, hp, speed, attack, sp
                 </div>
                 <div className="flex justify-around">
                     <p className={`w-24 flex justify-center rounded-sm
-                    ${type1 === "Normal" && "bg-zinc-400" || 
-                    type1 === "Fogo" && "bg-orange-600" || 
-                    type1 === "Água" && "bg-blue-500" ||
-                    type1 === "Elétrico" && "bg-yellow-300" ||
-                    type1 === "Grama" && "bg-green-400" ||
-                    type1 === "Gelo" && "bg-blue-400" ||
-                    type1 === "Lutador" && "bg-orange-700" ||
-                    type1 === "Venenoso" && "bg-violet-400" ||
-                    type1 === "Terra" && "bg-yellow-500" ||
-                    type1 === "Voador" && "bg-blue-300" ||
-                    type1 === "Psíquico" && "bg-pink-500" ||
-                    type1 === "Inseto" && "bg-green-600" ||
-                    type1 === "Pedra" && "bg-yellow-700" ||
-                    type1 === "Fantasma" && "bg-violet-600" ||
-                    type1 === "Dragão" && "bg-orange-900" ||
-                    type1 === "Noturno" && "bg-zinc-700" ||
-                    type1 === "Metal" && "bg-gray-600" ||
-                    type1 === "Fada" && "bg-pink-300"}
-                    `}>{type1}</p>
+                    ${type1 === "normal" && "bg-zinc-400 text-white" || 
+                    type1 === "fire" && "bg-orange-600 text-white" || 
+                    type1 === "water" && "bg-blue-500 text-white" ||
+                    type1 === "electric" && "bg-yellow-300" ||
+                    type1 === "grass" && "bg-green-400" ||
+                    type1 === "ice" && "bg-blue-400" ||
+                    type1 === "fighting" && "bg-orange-700 text-white" ||
+                    type1 === "poison" && "bg-violet-400" ||
+                    type1 === "ground" && "bg-yellow-500" ||
+                    type1 === "flying" && "bg-blue-300" ||
+                    type1 === "psychic" && "bg-pink-500 text-white" ||
+                    type1 === "bug" && "bg-green-600 text-white" ||
+                    type1 === "rock" && "bg-yellow-700 text-white" ||
+                    type1 === "ghost" && "bg-violet-600 text-white" ||
+                    type1 === "dragon" && "bg-orange-900 text-white" ||
+                    type1 === "dark" && "bg-zinc-700 text-white" ||
+                    type1 === "steel" && "bg-gray-600 text-white" ||
+                    type1 === "fairy" && "bg-pink-300"}
+                    `}>{type1 === "normal" && "Normal" ||
+                    type1 === "fire" && "Fogo" ||
+                    type1 === "water" && "Água" ||
+                    type1 === "electric" && "Elétrico" ||
+                    type1 === "grass" && "Grama" ||
+                    type1 === "ice" && "Gelo" ||
+                    type1 === "fighting" && "Lutador" ||
+                    type1 === "poison" && "Venenoso" ||
+                    type1 === "ground" && "Terra" ||
+                    type1 === "flying" && "Voador" ||
+                    type1 === "psychic" && "Psíquico" ||
+                    type1 === "bug" && "Inseto" ||
+                    type1 === "rock" && "Pedra" ||
+                    type1 === "ghost" && "Fantasma" ||
+                    type1 === "dragon" && "Dragão" ||
+                    type1 === "dark" && "Noturno" ||
+                    type1 === "steel" && "Metal" ||
+                    type1 === "fairy" && "Fada"}</p>
                     <p className={`w-24 flex justify-center rounded-sm
-                    ${type2 === "Normal" && "bg-zinc-400" || 
-                    type2 === "Fogo" && "bg-orange-600" || 
-                    type2 === "Água" && "bg-blue-500" ||
-                    type2 === "Elétrico" && "bg-yellow-300" ||
-                    type2 === "Grama" && "bg-green-400" ||
-                    type2 === "Gelo" && "bg-blue-400" ||
-                    type2 === "Lutador" && "bg-orange-700" ||
-                    type2 === "Venenoso" && "bg-violet-400" ||
-                    type2 === "Terra" && "bg-yellow-500" ||
-                    type2 === "Voador" && "bg-blue-300" ||
-                    type2 === "Psíquico" && "bg-pink-500" ||
-                    type2 === "Inseto" && "bg-green-600" ||
-                    type2 === "Pedra" && "bg-yellow-700" ||
-                    type2 === "Fantasma" && "bg-violet-600" ||
-                    type2 === "Dragão" && "bg-orange-900" ||
-                    type2 === "Noturno" && "bg-zinc-700" ||
-                    type2 === "Metal" && "bg-gray-600" ||
-                    type2 === "Fada" && "bg-pink-300"}
-                    `}>{type2}</p>
+                    ${type2 === "normal" && "bg-zinc-400 text-white" || 
+                    type2 === "fire" && "bg-orange-600 text-white" || 
+                    type2 === "water" && "bg-blue-500 text-white" ||
+                    type2 === "electric" && "bg-yellow-300" ||
+                    type2 === "grass" && "bg-green-400" ||
+                    type2 === "ice" && "bg-blue-400" ||
+                    type2 === "fighting" && "bg-orange-700 text-white" ||
+                    type2 === "poison" && "bg-violet-400" ||
+                    type2 === "ground" && "bg-yellow-500" ||
+                    type2 === "flying" && "bg-blue-300" ||
+                    type2 === "psychic" && "bg-pink-500 text-white" ||
+                    type2 === "bug" && "bg-green-600 text-white" ||
+                    type2 === "rock" && "bg-yellow-700 text-white" ||
+                    type2 === "ghost" && "bg-violet-600 text-white" ||
+                    type2 === "dragon" && "bg-orange-900 text-white" ||
+                    type2 === "dark" && "bg-zinc-700 text-white" ||
+                    type2 === "steel" && "bg-gray-600 text-white" ||
+                    type2 === "fairy" && "bg-pink-300"}
+                    `}>{type2 === "normal" && "Normal" ||
+                    type2 === "fire" && "Fogo" ||
+                    type2 === "water" && "Água" ||
+                    type2 === "electric" && "Elétrico" ||
+                    type2 === "grass" && "Grama" ||
+                    type2 === "ice" && "Gelo" ||
+                    type2 === "fighting" && "Lutador" ||
+                    type2 === "poison" && "Venenoso" ||
+                    type2 === "ground" && "Terra" ||
+                    type2 === "flying" && "Voador" ||
+                    type2 === "psychic" && "Psíquico" ||
+                    type2 === "bug" && "Inseto" ||
+                    type2 === "rock" && "Pedra" ||
+                    type2 === "ghost" && "Fantasma" ||
+                    type2 === "dragon" && "Dragão" ||
+                    type2 === "dark" && "Noturno" ||
+                    type2 === "steel" && "Metal" ||
+                    type2 === "fairy" && "Fada"}</p>
                 </div>
             </div>
             <div className='h-full flex justify-around items-end my-2 mx-2'>
