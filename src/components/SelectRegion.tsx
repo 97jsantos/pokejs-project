@@ -11,7 +11,7 @@ export function SelectRegion({ regionChange, regionSelected, disabled }:SelectRe
     const [ regions, setRegions ] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/regions/", {
+        fetch("https://pokejs-api.herokuapp.com/regions/", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'

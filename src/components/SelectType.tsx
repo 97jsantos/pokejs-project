@@ -11,7 +11,7 @@ export function SelectType({ typeChange, typeSelected, disabled }: SelectTypePro
     const [ type, setType ] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/types/", {
+        fetch("https://pokejs-api.herokuapp.com/types/", {
             method: "GET",
             headers: {
                 'Content-Type': 'application.json'

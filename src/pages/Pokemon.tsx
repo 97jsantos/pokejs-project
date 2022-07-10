@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react"
-import { AiFillHeart } from "react-icons/ai"
-import { BsShieldFill } from "react-icons/bs"
-import { GiBarefoot, GiWizardStaff } from "react-icons/gi"
-import { RiSwordFill } from "react-icons/ri"
 import { useParams } from "react-router-dom"
 
 export function Pokemon() {
@@ -12,7 +8,7 @@ export function Pokemon() {
     const {id} = useParams()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/pokemons/`, {
+        fetch(`https://pokejs-api.herokuapp.com/pokemons/`, {
             method: "GET",
             headers: { 
                 'Content-Type': 'application/json'

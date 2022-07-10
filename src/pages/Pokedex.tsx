@@ -32,7 +32,7 @@ export function Pokedex() {
 
     useEffect(() => {
         
-        fetch(`http://localhost:5000/pokemons`, {
+        fetch(`https://pokejs-api.herokuapp.com/pokemons/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export function Pokedex() {
 
     function handleChange(event: any) {
         setPokeNumber(Number(event.target.value))
-        setPokeName(event.target.value.length > 0 && event.target.value[0].toUpperCase() + event.target.value.substring(1).toLowerCase())
+        setPokeName(event.target.value.length > 0 && event.target.value)
         setRegionSelected('Todas')
         setTypeSelected('Todos')
         setCurrentPage(1)

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { GiWeight, GiWizardStaff, GiBarefoot } from 'react-icons/gi'
+import { GiWizardStaff, GiBarefoot } from 'react-icons/gi'
 import { IoMdStats } from 'react-icons/io'
 import { AiFillHeart } from 'react-icons/ai'
 import { RiSwordFill } from 'react-icons/ri'

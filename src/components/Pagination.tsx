@@ -34,7 +34,7 @@ export function Pagination({ currentPage, toFirstPage, toPrevPage, toNextPage, t
             .map((_,index) => currentPage <= totalPages - 4 ? (index) + firstPage : (index) + Math.max(totalPages - (maxPages - 1), 1))
             .map((page) => (
                 <button
-                    className={`${page === currentPage ? "bg-zinc-300" : ''} w-9 flex justify-center px-3 bg-white text-zinc-700 border border-zinc-300`}
+                    className={`${page === currentPage ? "bg-zinc-400" : ''} w-9 flex justify-center px-3 bg-white text-zinc-700 border border-zinc-300`}
                     value={page}
                     key={page}
                     onClick={clickPage}>{page}
