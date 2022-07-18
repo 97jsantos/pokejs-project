@@ -7,7 +7,7 @@ import { RiSwordFill } from 'react-icons/ri'
 import { BsShieldFill } from 'react-icons/bs'
 
 interface PokeCardProps {
-    name: any
+    name: string
     id: number
     type1: string
     type2: string
